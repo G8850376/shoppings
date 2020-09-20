@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" isErrorPage="true">
+    <title>Insert title here</title>
+</head>
+<body>
+<h1 align="center">欢迎光临注册界面</h1>
+<form th:action="@{/register}" method="get">
+    name:<input type="text" name="name"/>
+    <br>
+    password:<input type="text" name="password"/>
+    <br>
+    <input type="submit" value="go">
+    <a href="back">返回</a>
+</form>
+</body>
+</html>

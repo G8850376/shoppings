@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Data Table - Vali Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" th:href="@{~/css/main.css}" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="app sidebar-mini">
+<!-- Navbar-->
+<div th:replace="~{public::top}"></div>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<div th:replace="~{public::left}"></div>
+    <div class="app-title">
+        <div>
+            <h1><i class="fa fa-th-list"></i> Data Table</h1>
+            <p>Table to display analytical data effectively</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
+        </ul>
+    </div>
+<a th:href="@{/}">返回</a>
+<form th:action="@{/list}" method="get">
+    <input type="submit" value="go">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered" id="sampleTable">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>名称</th>
+                                <th>单价</th>
+                                <th>库存</th>
+                                <th>评论</th>
+                                <th>类型</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="m:${mylist}" >
+                                <td th:text="${m.id}"></td>
+                                <td th:text="${m.name}"></td>
+                                <td th:text="${m.price}"></td>
+                                <td th:text="${m.inventory}"></td>
+                                <td th:text="${m.comment}"></td>
+                                <td th:text="${m.type}"></td>
+                                <!--                      <td><a th:href="@{/dept/}+${abc.id}" class="btn btn-sm btn-primary">编辑</a> |-->
+                                <!--                       <button  th:attr="delurl=@{/dept/}+${abc.id}" type="button"  class="btn btn-sm btn-danger deleteBtn">删除</button>-->
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</main>
+</body>
+</html>
